@@ -15,7 +15,7 @@ My goal was CLEAN logging that reflected the intent of the logging code, but:
 What it took to resolve this is indisuputedly a HACK, but at least one of the associated bug reports for fact that GCP's client code shows as error (see https://issuetracker.google.com/124403972) has been open for >1 year.  So, without a cleaner solution, I've done my best to contain the hack in a helper file which can be included in the function's main python module with a simple:
 
     from loggingutil import LogFactory
-    logger = LogFactory(__name__, debug=True)
+    logger = LogFactory(__name__)
 
 And from there, using logger normally will use a hacked and initialized logger with CLEAN output.
 
